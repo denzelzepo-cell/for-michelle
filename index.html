@@ -373,14 +373,12 @@ window.open(
 );
 
 }
-function playMusic(){
-
+  function playMusic(){
   const music = document.getElementById('bgMusic');
-
-  music.volume = 0.45;
-
-  music.play();
-
+  music.volume = 0.5;
+  music.play().catch(() => {
+    alert("Tap again to start the music 🎵");
+  });
 }
 </script>
 
