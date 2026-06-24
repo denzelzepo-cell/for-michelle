@@ -79,6 +79,12 @@ animation:fall linear infinite;
 pointer-events:none;
 }
 
+#countdown{
+font-size:20px;
+font-weight:bold;
+color:#9d496b;
+}
+
 @keyframes fall{
 to{transform:translateY(110vh) rotate(360deg)}
 }
@@ -174,6 +180,7 @@ Open Invitation 💌
 <script>
 let chosenType="";
 let chosenDate="";
+let countdownTarget=new Date("July 3, 2026 18:00:00").getTime();
 
 function go(n){
 document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
@@ -202,42 +209,44 @@ go(4);
 
 function pickDate(date){
 chosenDate=date;
+
+if(date==="3 July 2026"){
+countdownTarget=new Date("July 3, 2026 18:00:00").getTime();
+}
+if(date==="4 July 2026"){
+countdownTarget=new Date("July 4, 2026 18:00:00").getTime();
+}
+if(date==="5 July 2026"){
+countdownTarget=new Date("July 5, 2026 18:00:00").getTime();
+}
+
 document.getElementById("chosenType").innerText=chosenType;
 document.getElementById("chosenDate").innerText=chosenDate;
 updateCountdown();
-go(6);
+go(5);
 }
+
+function updateCountdown(){
+const now=new Date().getTime();
+const distance=countdownTarget-now;
+
+if(distance<=0){
+document.getElementById("countdown").innerHTML="It’s date day ❤️";
+return;
+}
+
+const days=Math.floor(distance/(1000*60*60*24));
+const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+const seconds=Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML=
+days+" days · "+hours+" hours · "+minutes+" minutes · "+seconds+" seconds";
+}
+
+setInterval(updateCountdown,1000);
 
 function sendWhatsApp(){
-  function updateCountdown(){
-
-  const date = new Date("July 3, 2026 18:00:00").getTime();
-
-  const now = new Date().getTime();
-
-  const distance = date - now;
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  document.getElementById("countdown").innerHTML =
-
-  days + " days · " +
-
-  hours + " hours · " +
-
-  minutes + " minutes · " +
-
-  seconds + " seconds";
-
-}
-
-setInterval(updateCountdown, 1000);
 const message=`Hi Denzel ❤️
 
 I've accepted your invitation.
