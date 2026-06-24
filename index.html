@@ -161,6 +161,9 @@ Open Invitation 💌
 <p><b>Experience:</b> <span id="chosenType"></span></p>
 <p><b>Date:</b> <span id="chosenDate"></span></p>
 
+<h2>Countdown to our date 🫶🏾</h2>
+<p id="countdown"></p>
+
 <button onclick="sendWhatsApp()">💌 Send My Choice</button>
 
 <p>Now it’s my turn to plan something special.</p>
@@ -201,10 +204,40 @@ function pickDate(date){
 chosenDate=date;
 document.getElementById("chosenType").innerText=chosenType;
 document.getElementById("chosenDate").innerText=chosenDate;
-go(5);
+updateCountdown();
+go(6);
 }
 
 function sendWhatsApp(){
+  function updateCountdown(){
+
+  const date = new Date("July 3, 2026 18:00:00").getTime();
+
+  const now = new Date().getTime();
+
+  const distance = date - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+
+  days + " days · " +
+
+  hours + " hours · " +
+
+  minutes + " minutes · " +
+
+  seconds + " seconds";
+
+}
+
+setInterval(updateCountdown, 1000);
 const message=`Hi Denzel ❤️
 
 I've accepted your invitation.
