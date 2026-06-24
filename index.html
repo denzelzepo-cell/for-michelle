@@ -70,6 +70,13 @@ margin:14px 0;
 box-shadow:0 12px 30px rgba(0,0,0,.12);
 }
 
+#countdown{
+font-size:22px;
+font-weight:bold;
+color:#9d496b;
+margin-top:20px;
+}
+
 .petal{
 position:fixed;
 top:-30px;
@@ -77,12 +84,6 @@ font-size:22px;
 opacity:.55;
 animation:fall linear infinite;
 pointer-events:none;
-}
-
-#countdown{
-font-size:20px;
-font-weight:bold;
-color:#9d496b;
 }
 
 @keyframes fall{
@@ -113,10 +114,7 @@ document.body.appendChild(p);
 <div class="card">
 <h1>Michelle ❤️</h1>
 <p>I have something I’d like to ask you...</p>
-
-<button onclick="startInvite()">
-Open Invitation 💌
-</button>
+<button onclick="startInvite()">Open Invitation 💌</button>
 </div>
 </div>
 
@@ -151,29 +149,47 @@ Open Invitation 💌
 
 <div id="s5" class="screen">
 <div class="card">
-<h2>A few of my favourite photos ❤️</h2>
-<img src="michelle1.jpeg" alt="Michelle">
-<p>Effortlessly beautiful.</p>
-<img src="michelle2.jpeg" alt="Michelle">
-<p>And even more beautiful when you’re being yourself.</p>
+<h1>Vendredi 🫶🏾</h1>
+<p><b>Ma chérie,</b></p>
+<p>Wear something that you’d feel belle taking photos in.</p>
+<p>Be ready for 6. I’ll pick you up.</p>
+<p>The rest is a surprise 🌹</p>
+<p>That’s all the information you’re getting.</p>
 <button onclick="go(6)">Continue ✨</button>
 </div>
 </div>
 
 <div id="s6" class="screen">
 <div class="card">
+<h2>A few of my favourite photos ❤️</h2>
+<img src="michelle1.jpeg" alt="Michelle">
+<p>Effortlessly beautiful.</p>
+<img src="michelle2.jpeg" alt="Michelle">
+<p>And even more beautiful when you’re being yourself.</p>
+<button onclick="go(7)">Continue ✨</button>
+</div>
+</div>
+
+<div id="s7" class="screen">
+<div class="card">
+<h1>Countdown to our date 🫶🏾</h1>
+<p>Friday is officially ours.</p>
+<p id="countdown"></p>
+<button onclick="go(8)">Continue 💌</button>
+</div>
+</div>
+
+<div id="s8" class="screen">
+<div class="card">
 <h1>Thank you, Michelle ❤️</h1>
 <p>Your choices have been safely received.</p>
 <p><b>Experience:</b> <span id="chosenType"></span></p>
 <p><b>Date:</b> <span id="chosenDate"></span></p>
 
-<h2>Countdown to our date 🫶🏾</h2>
-<p id="countdown"></p>
-
 <button onclick="sendWhatsApp()">💌 Send My Choice</button>
 
 <p>Now it’s my turn to plan something special.</p>
-<p>— Denzel ❤️</p>
+<p>— Denzel 🫶🏾</p>
 </div>
 </div>
 
